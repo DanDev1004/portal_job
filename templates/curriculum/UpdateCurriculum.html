@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<form  method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="nombre">Nombres:</label>
+        {%render_field formulario.nombres %}
+    </div>
+
+    <div>
+        <label for="est_date">Apellidos:</label>
+        {%render_field formulario.apellidos %}
+    </div>
+
+    <div>
+        <label for="departamento">Ubicacion:</label>
+        {%render_field formulario.ubicacion %}
+    </div>
+
+    <div>
+        <label for="distrito">Titulo profesional:</label>
+        {%render_field formulario.titulo_profesional %}
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>
+
+{% endblock content %}
+
+

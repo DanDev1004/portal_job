@@ -1,0 +1,44 @@
+{% extends "users/base.html" %}
+{% load widget_tweaks %}
+
+
+
+{% block content  %}
+
+<form  method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="email">Correo electrónico:</label>
+        {% render_field formulario.email class="form-control" %}
+    </div>
+    <div>
+        <label for="password">Ingresar contraseña:</label>
+        {% render_field formulario.password1 class="form-control" %}
+    </div>
+    <div>
+        <label for="password2">Confirmar contraseña:</label>
+        {% render_field formulario.password2 class="form-control" %}
+    </div>
+    <div>
+        <button type="submit">Registrate</button>
+    </div>
+    <hr>
+    <small>Ya tiene una cuenta? <a href="{% url 'login'%}">Inicia sesión</a></small>
+</form>
+
+{% if formulario.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field in formulario %}
+                {% for error in field.errors %}
+                    <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in formulario.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% endblock content  %}

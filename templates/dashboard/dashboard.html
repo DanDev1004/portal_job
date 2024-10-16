@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if  request.user.es_aplicante %}
+        {% if not request.user.tiene_curriculum%}
+            <b>Error: No posees un curriculum. Crea una curriculum <a href="{%url 'update-curriculum'%}">aquí</a></b>
+        {% endif %}
+        <p>dashboard para aplicante</p>
+
+
+    {% elif request.user.es_reclutador %}
+
+        {% if not request.user.tiene_empresa%}
+            <b>Error: No posees una empresa. Crea una empresa <a href="{%url 'update-empresa'%}">aquí</a></b>
+        {% endif %}
+        <p>dashboard para reclutador</p>
+    {% endif %}
+
+
+{% endblock content %}
+

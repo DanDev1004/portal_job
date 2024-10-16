@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<form  method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="nombre">Razón Social:</label>
+        {%render_field formulario.nombre %}
+    </div>
+
+    <div>
+        <label for="est_date">Fecha de Inicio:</label>
+        {%render_field formulario.est_date %}
+    </div>
+
+    <div>
+        <label for="distrito">Distrito:</label>
+        {%render_field formulario.distrito %}
+    </div>
+
+    <div>
+        <label for="provincia">Provincia:</label>
+        {%render_field formulario.provincia %}
+    </div>
+
+    <div>
+        <label for="departamento">Departamento:</label>
+        {%render_field formulario.departamento %}
+    </div>
+
+
+    <button type="submit">Enviar</button>
+</form>
+
+{% endblock content %}
+
+

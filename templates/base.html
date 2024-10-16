@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - BASE</title>
+</head>
+<body>
+    <div>
+        <div>
+            
+            <div>
+                <nav>
+                    <a href="{%url 'dashboard'%}">PORTAL JOB</a>
+                {% if request.user.is_authenticated %}
+
+                    {% if request.user.es_aplicante %}
+
+                        <span>Navbar para aplicante</span>
+
+                        {% if request.user.tiene_curriculum %}
+                        <a href="#">Aplicar a un trabajo</a>
+                        {% else %}
+                        <a href="{%url 'update-curriculum' %}">Crear un curriculum</a>
+                        {% endif %}
+
+                    {% elif request.user.es_reclutador %}
+                        <span>Navbar para reclutador</span>
+
+                        {% if request.user.tiene_empresa %}
+                        <a href="#">Agregar oferta laboral</a>
+                        {% else %}
+                        <a href="{% url 'update-empresa' %}">Crear empresa</a>
+                        {% endif %}
+                
+                    {% endif %}
+
+                {% endif %}
+                </nav>
+                
+            </div>
+            <h1>Bienvenido al Portal Job</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap</p>
+        </div>
+        <div>
+            {% if messages %}
+                {% for mensaje in messages %}
+                    <b>{{mensaje}}</b>
+                {% endfor %}
+            {% endif %}
+            
+            
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+
+    <a href="{%url 'logout' %}">Cerrar sesión</a>
+</body> 
+</html>
