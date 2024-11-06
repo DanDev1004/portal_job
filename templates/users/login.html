@@ -13,16 +13,15 @@
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
     </div>
-    <div>
-        <label for="remember">
-            <input type="checkbox" id="remember" name="remember"> Recuérdame
-        </label>
-    </div>
+
     <div>
         <button type="submit">Iniciar sesión</button>
     </div>
     <hr>
-    <small>No tiene una cuenta? <a href="#">Registrate</a></small>
+    <p>No tiene una cuenta?</p>
+    <a href="{% url 'AddUser-aplicante' %}">Registrate como aplicante</a>
+    <br>
+    <a href="{% url 'AddUser-reclutador' %}">Registrate como reclutador</a>
 </form>
 
 {% endblock content  %}

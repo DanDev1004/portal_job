@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+
+<div>
+    <h2>{{alerta.titulo}}</h2>
+    <p>{{alerta.ubicacion }} | PEN {{alerta.salario|intcomma}}</p>
+    {% if  ya_aplicaste == False %}
+    <a href="{% url "aplicando-para-trabajo" alerta.pk %}">Aplicar ahora</a>
+    {% else %}
+    <p>Ya haz aplicado a esta chamba!:D</p>
+    {% endif %}
+</div>
+<div>
+    <h5>Descripcion:</h5>
+    <p>{{alerta.requerimientos}}</p>
+    <p>{{alerta.candidato_ideal}}</p>
+</div>
+
+<div>
+    <h3>Detalles de la empresa {{alerta.empresa.nombre}}:</h3>
+    <p>Ubicacion: {{alerta.empresa.distrito}}, {{alerta.empresa.provincia}}, {{alerta.empresa.departamento}}</p>
+    <p>Desde: {{alerta.empresa.est_date}}</p>
+</div>
+
+{% endblock content %}

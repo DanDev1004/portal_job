@@ -11,6 +11,19 @@ class Alerta(models.Model):
     requerimientos = models.TextField()
     candidato_ideal = models.TextField()
     disponible = models.BooleanField(default=False)
+    apertura = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
         return self.titulo
+    
+
+class AplicarTrabajo(models.Model):
+    estados_postulacion = (
+        ('Aceptado','Aceptado'),
+        ('Rechazado','Rechazado'),
+        ('Pendiente','Pendiente')
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    alerta = models.ForeignKey(Alerta, on_delete=models.CASCADE)
+    postulacion = models.CharField(max_length=20, choices=estados_postulacion)

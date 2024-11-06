@@ -5,32 +5,37 @@
 <form  method="POST">
     {% csrf_token %}
     <div>
-        <label for="nombre">Título:</label>
+        <label for="titulo">Título:</label>
         {%render_field formulario.titulo %}
     </div>
 
     <div>
-        <label for="est_date">Salario:</label>
+        <label for="salario">Salario:</label>
         {%render_field formulario.salario %}
     </div>
 
     <div>
-        <label for="distrito">Ubicacion:</label>
+        <label for="ubicacion">Ubicacion:</label>
         {%render_field formulario.ubicacion %}
     </div>
 
     <div>
-        <label for="provincia">Requerimientos:</label>
+        <label for="requerimientos">Requerimientos:</label>
         {%render_field formulario.requerimientos %}
     </div>
 
     <div>
-        <label for="departamento">Candidato ideal:</label>
+        <label for="candidato_ideal">Candidato ideal:</label>
         {%render_field formulario.candidato_ideal %}
     </div>
 
+    <div>
+        <label for="disponible">Este trabajo está disponible</label>
+        {%render_field formulario.disponible %}
+    </div>
 
-    <button type="submit">Enviar</button>
+
+    <button type="submit">Crear</button>
 </form>
 
 {% endblock content %}

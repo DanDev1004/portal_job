@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>Todos los aplicantes para el puesto de {{alerta.titulo}}</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Ubicacion</th>
+            <th>titulo profesional</th>
+            <!--<th>fech. aplicación</th>-->
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aplicante in aplicantes %}
+
+        <tr>
+            <td>{{aplicante.user.curriculum.nombres}}</td>
+            <td>{{aplicante.user.curriculum.apellidos}}</td>
+            <td>{{aplicante.user.curriculum.ubicacion}}</td>
+            <td>{{aplicante.user.curriculum.titulo_profesional}}</td>
+
+            <td><a href="">Descargar CV</a></td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

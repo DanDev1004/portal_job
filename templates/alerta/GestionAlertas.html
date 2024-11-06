@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>Mis ofertas laborales</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Ubicacion</th>
+            <th>Salario (PEN)</th>
+            <th>N° aplicantes</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alert in alertas %}
+        
+        <tr>
+            <td>{{alert.titulo}}</td>
+            <td>{{alert.ubicacion}}</td>
+            <td>{{alert.salario}}</td>
+            <td>{{alert.aplicartrabajo_set.all.count}} <a href="{% url "aplicante-list" alert.pk %}">Ver todos</a></td> <!--models.AplicarTrabajo-->
+            
+            {% if alert.disponible %}
+            <td>Activo</td>
+            {% else %}
+            <td>Inactivo</td>
+            {% endif %}
+
+            <td><a href="">Actualizar</a></td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
