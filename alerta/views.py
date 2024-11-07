@@ -57,7 +57,7 @@ def aplicando_para_trabajo(request, pk):
     if request.user.is_authenticated and request.user.es_aplicante:
         alerta = Alerta.objects.get(pk=pk)
 
-        if AplicarTrabajo.objects.filter(user=request.user, job=pk).exists():
+        if AplicarTrabajo.objects.filter(user=request.user, alerta=pk).exists():
             messages.warning(request,'Permiso denegado')
             return redirect('dashboard')
         else:
