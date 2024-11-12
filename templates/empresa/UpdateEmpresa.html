@@ -1,38 +1,38 @@
 {% extends "base.html" %}
+{% load static %} 
 {% load widget_tweaks %}
 
 {% block content %}
-<form  method="POST">
+<form method="POST">
     {% csrf_token %}
     <div>
         <label for="nombre">Razón Social:</label>
-        {%render_field formulario.nombre %}
+        {% render_field formulario.nombre %}
     </div>
 
     <div>
         <label for="est_date">Fecha de Inicio:</label>
-        {%render_field formulario.est_date %}
-    </div>
-
-    <div>
-        <label for="distrito">Distrito:</label>
-        {%render_field formulario.distrito %}
-    </div>
-
-    <div>
-        <label for="provincia">Provincia:</label>
-        {%render_field formulario.provincia %}
+        {% render_field formulario.est_date %}
     </div>
 
     <div>
         <label for="departamento">Departamento:</label>
-        {%render_field formulario.departamento %}
+        {% render_field formulario.departamento id="departamento" %}
     </div>
 
+    <div>
+        <label for="provincia">Provincia:</label>
+        {% render_field formulario.provincia id="provincia" %}
+    </div>
 
-    <button type="submit">Enviar</button>
+    <div>
+        <label for="distrito">Distrito:</label>
+        {% render_field formulario.distrito id="distrito" %}
+    </div>
+
+    <button type="submit">Crear</button>
 </form>
 
+<script src="{% static 'js/ubigeo_script.js' %}"></script>
+
 {% endblock content %}
-
-

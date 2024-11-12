@@ -23,5 +23,6 @@ urlpatterns = [
     path('empresa/',include('empresa.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('alerta/', include('alerta.urls')),
-    path('curriculum/',include('curriculum.urls'))
+    path('curriculum/',include('curriculum.urls')),
+    path('ubigeo/', include('ubigeo.urls'))
 ]

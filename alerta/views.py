@@ -17,6 +17,7 @@ def create_alerta(request):
                 messages.info(request,'Se ha creado una nueva alerta de empleo')
                 return redirect('dashboard')
             else:
+                print(form.errors)  
                 messages.warning(request,'Error al crear la alerta de empleo')
                 return redirect('create-alerta')
         else:

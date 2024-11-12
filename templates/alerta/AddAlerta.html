@@ -1,43 +1,68 @@
 {% extends "base.html" %}
+{% load static %}
 {% load widget_tweaks %}
 
 {% block content %}
-<form  method="POST">
+<form method="POST">
     {% csrf_token %}
     <div>
         <label for="titulo">Título:</label>
-        {%render_field formulario.titulo %}
+        {% render_field formulario.titulo %}
     </div>
 
     <div>
         <label for="salario">Salario:</label>
-        {%render_field formulario.salario %}
+        {% render_field formulario.salario %}
     </div>
 
     <div>
-        <label for="ubicacion">Ubicacion:</label>
-        {%render_field formulario.ubicacion %}
+        <label for="titulo">Tipo de trabajo:</label>
+        {% render_field formulario.tipo_alerta %}
+    </div>
+
+    <div>
+        <label for="titulo">Industria:</label>
+        {% render_field formulario.industria %}
+    </div>
+
+    <div>
+        <label for="departamento">Departamento:</label>
+        {% render_field formulario.departamento id="departamento" %}
+    </div>
+
+    <div>
+        <label for="provincia">Provincia:</label>
+        {% render_field formulario.provincia id="provincia" %}
+    </div>
+
+    <div>
+        <label for="distrito">Distrito:</label>
+        {% render_field formulario.distrito id="distrito" %}
+    </div>
+
+    <div>
+        <label for="ubicacion">Direccion:</label>
+        {% render_field formulario.direccion %}
     </div>
 
     <div>
         <label for="requerimientos">Requerimientos:</label>
-        {%render_field formulario.requerimientos %}
+        {% render_field formulario.requerimientos %}
     </div>
 
     <div>
         <label for="candidato_ideal">Candidato ideal:</label>
-        {%render_field formulario.candidato_ideal %}
+        {% render_field formulario.candidato_ideal %}
     </div>
 
     <div>
-        <label for="disponible">Este trabajo está disponible</label>
-        {%render_field formulario.disponible %}
+        <label for="disponible">Este trabajo está disponible:</label>
+        {% render_field formulario.disponible %}
     </div>
-
 
     <button type="submit">Crear</button>
 </form>
 
+<script src="{% static 'js/ubigeo_script.js' %}"></script>
+
 {% endblock content %}
-
-

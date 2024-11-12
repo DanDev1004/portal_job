@@ -8,9 +8,9 @@
     <div>
         <h5>{{alert.titulo}}</h5>
         <p>Salario: {{alert.salario|intcomma}}</p>
-        <p>Ubicacion: {{alert.ubicacion}}</p>
+        <p>Ubicacion: {{alert.direccion}}</p>
         <p>Empresa: {{alert.empresa}}</p>
-        <p>Publicación: {{alert.apertura|naturaltime}}</p>
+        <p>Publicado {{alert.apertura|naturaltime}}</p>
         <p>{{alert.apertura}}</p>
         <a href="{% url 'alerta-details' alert.pk %}">Más información</a> 
     </div>                                    
