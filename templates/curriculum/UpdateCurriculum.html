@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
 {% load widget_tweaks %}
 
 {% block content %}
-<form  method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
         <label for="nombre">Nombres:</label>
@@ -15,6 +16,21 @@
     </div>
 
     <div>
+        <label for="departamento">Departamento:</label>
+        {% render_field formulario.departamento id="departamento" %}
+    </div>
+
+    <div>
+        <label for="provincia">Provincia:</label>
+        {% render_field formulario.provincia id="provincia" %}
+    </div>
+
+    <div>
+        <label for="distrito">Distrito:</label>
+        {% render_field formulario.distrito id="distrito" %}
+    </div>
+
+    <div>
         <label for="departamento">Ubicacion:</label>
         {%render_field formulario.ubicacion %}
     </div>
@@ -23,9 +39,15 @@
         <label for="distrito">Titulo profesional:</label>
         {%render_field formulario.titulo_profesional %}
     </div>
+    <div>
+        <label for="curriculum">Cargar curriculum:</label>
+        {%render_field formulario.cargar_curriculum %}
+    </div>
 
     <button type="submit">Enviar</button>
 </form>
+
+<script src="{% static 'js/ubigeo_script.js' %}"></script>
 
 {% endblock content %}
 

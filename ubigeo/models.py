@@ -11,11 +11,11 @@ class Provincia(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.nombre}, {self.departamento.nombre}"
+        return self.nombre
 
 class Distrito(models.Model):
     nombre = models.CharField(max_length=100)
     provincia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.nombre}, {self.provincia.nombre}, {self.provincia.departamento.nombre}"
+        return self.nombre

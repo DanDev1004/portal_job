@@ -5,7 +5,7 @@ from .filter import FiltrosAlerta
 def home(request):
     alertasFiltradas = FiltrosAlerta(request.GET, queryset=Alerta.objects.filter(disponible=True).order_by('-apertura'))
     context = {'alertas_filtradas':alertasFiltradas}
-    return render(request,'website/home.html')
+    return render(request,'website/home.html', context)
 
 def listar_alertas(request):
     alertas = Alerta.objects.filter(disponible=True).order_by('-apertura')

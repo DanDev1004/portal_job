@@ -8,7 +8,7 @@ def update_curriculum(request):
     if request.user.es_aplicante:
         curriculum = Curriculum.objects.get(user=request.user)
         if request.method == 'POST':
-            form = UpdateFormCurriculum(request.POST, instance=curriculum)
+            form = UpdateFormCurriculum(request.POST, request.FILES, instance=curriculum)
             if form.is_valid():
                 var = form.save(commit=False)
                 user = User.objects.get(pk=request.user.id)
@@ -18,7 +18,7 @@ def update_curriculum(request):
                 messages.info(request,'Tu curriculum ha sido actualizado.')
                 return redirect('dashboard')
             else:
-                messages.warning('Error al actualizar curriculum')
+                messages.warning(request,'Error al actualizar curriculum')
         else:
             form = UpdateFormCurriculum(instance=curriculum)
             context = {'formulario':form}

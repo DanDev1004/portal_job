@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>Mis ofertas laborales</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Salario (PEN)</th>
+            <th>Tipo de instancia</th> 
+            <th>Industria</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alert in alertas_aplicadas %}
+        
+        <tr>
+            <td>{{alert.alerta.titulo}}</td>
+            <td>{{alert.alerta.salario}}</td>
+            <td>{{alert.alerta.tipo_alerta}}</td>
+            <td>{{alert.alerta.industria}}</td>
+
+            <td><a href="{% url 'alerta-details' alert.alerta.pk %}">Ver detalles</a></td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

@@ -21,8 +21,7 @@
             <td>{{aplicante.user.curriculum.apellidos}}</td>
             <td>{{aplicante.user.curriculum.ubicacion}}</td>
             <td>{{aplicante.user.curriculum.titulo_profesional}}</td>
-
-            <td><a href="">Descargar CV</a></td>
+            <td><a target="_blank" href="{{aplicante.user.curriculum.cargar_curriculum.url}}">Descargar CV </a></td>
         </tr>
 
         {% endfor %}

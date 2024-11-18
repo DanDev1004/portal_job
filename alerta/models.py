@@ -2,6 +2,7 @@ from django.db import models
 from users.models import User
 from empresa.models import Empresa
 from ubigeo.models import Departamento, Provincia, Distrito 
+from curriculum.models import Curriculum
 
 
 class Industria(models.Model):
@@ -48,3 +49,5 @@ class AplicarTrabajo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     alerta = models.ForeignKey(Alerta, on_delete=models.CASCADE)
     postulacion = models.CharField(max_length=20, choices=estados_postulacion)
+    
+

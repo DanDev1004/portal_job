@@ -14,10 +14,13 @@
                     {% if request.user.is_authenticated %}
                     <a href="{%url 'dashboard'%}">PORTAL JOB</a>
 
+                    <a href="">{{request.user.email}}</a>
+
                     {% if request.user.es_aplicante %}
                         <span>Navbar para aplicante</span>
                         {% if request.user.tiene_curriculum %}
                         <a href="{% url 'alerta-list' %}">Aplicar a un trabajo</a>
+                        <a href="{% url 'alertas-aplicadas-list' %}">Trabajos aplicados</a>
                         {% else %}
                         <a href="{%url 'update-curriculum' %}">Crear un curriculum</a>
                         {% endif %}

@@ -28,7 +28,7 @@
             <td>Inactivo</td>
             {% endif %}
 
-            <td><a href="">Actualizar</a></td>
+            <td><a href="{% url 'update-alerta' alert.pk %}">Actualizar</a></td>
         </tr>
 
         {% endfor %}

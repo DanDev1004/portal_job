@@ -81,3 +81,9 @@ def aplicantes_list(request, pk):
     print("Hola",aplicantes)
     context = {'alerta':alerta,'aplicantes':aplicantes}
     return render(request,'alerta/aplicanteList.html',context)
+
+
+def alertas_aplicadas_list(request):
+    alertas = AplicarTrabajo.objects.filter(user=request.user)
+    context = {'alertas_aplicadas':alertas}
+    return render(request,'alerta/alertasAplicadasList.html',context)
