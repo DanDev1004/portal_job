@@ -64,7 +64,7 @@ def login_user(request):
         user = authenticate(request,username=email,password=password)
         if user is not None and user.is_active:
             login(request,user)
-            return redirect('dashboard')
+            return redirect('home')
         else:
             messages.warning(request, 'Error al iniciar sesión')
             return redirect('login')
