@@ -1,0 +1,77 @@
+
+.main-header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/*el icono hamburguesa solo se mostrará en movil */
+.menu-bar{
+    background-color: var(--blanco-suave);
+    padding: 0.5rem;
+    border-radius: 20px;
+    display: none;
+}
+
+.search{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    background-color: none;
+    border-radius: 15px;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    background-color: var(--blanco);
+}
+
+.search input{
+    width: 90%;
+    border: none
+}
+
+
+.btn-search{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding:  0 5%;
+    border: none;
+    background-color: var(--azul);
+    color: var(--blanco-suave);
+    font-size: 18px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+}
+
+.btn-search:hover{
+    background-color: var(--amarillo);
+    color: var(--negro);
+}
+
+
+.sort-wrapper{
+    display: flex;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-size: 14px; 
+    padding-bottom: 15px;
+}
+
+
+.sort{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sort-list select{
+    height: 1.5rem;
+    border-radius: 20px;
+    border: none;
+    margin-top: 0 0.5rem;
+}
+

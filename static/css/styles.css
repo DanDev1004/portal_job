@@ -1,0 +1,141 @@
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --negro: #000;
+    --gris: #777676;
+    --blanco: #fff;
+    --blanco-suave: #F5F5F5;
+    --azul-claro: #E9F1FA;
+    --celeste-claro: #D4F1F9;
+    --celeste-intermedio: #89CFF0;
+    --turquesa: #E9F1FA;
+    --azul: #0358CB;
+    --azul-pastel: #6BAED8;
+    --azul-oscuro: #2B6CB0;
+    --azul-marino: #1E3A8A;
+    --azul-noche: #002060;
+    --amarillo: #ffc918; 
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background: var(--blanco-suave);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 380px;
+    height: 110vh;
+    background: var(--azul);
+}
+
+.navbar {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45%;
+    height: 45%;
+}
+
+.logo h1 {
+    margin-left: 1rem;
+    text-transform: uppercase;
+    color: var(--blanco);
+}
+
+ul {
+    margin: 0 auto;
+}
+
+li {
+    padding-bottom: 2rem;
+}
+
+li a {
+    font-size: 16px;
+    color: var(--blanco);
+}
+
+
+
+nav i {
+    width: 50px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+/* Main Section */
+.main {
+    width: 100%;
+}
+
+.main-top {
+    width: 100%;
+    background: var(--azul-noche);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blanco);
+}
+
+.main-body {
+    padding: 10px 10px 10px 20px;
+}
+
+h1 {
+    margin: 20px 10px;
+}
+
+
+
+.row {
+    display: flex;
+    padding: 10px;
+    margin-top: 1.3rem;
+    justify-content: space-between;
+}
+
+.row p {
+    color: rgb(54, 54, 54);
+    font-size: 15px;
+}
+
+.row p span {
+    color: blueviolet;
+}
+
+
+

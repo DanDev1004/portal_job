@@ -1,55 +1,139 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Portal - BASE</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/card_jobs.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>IESTP - JOB PORTAL</title>
 </head>
 <body>
-    <div>
-        <div>
-            
-            <div>
-                <nav>
+    <div class="container">
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png'%}" alt="">
+                    <h1>IESTP</h1>
+                </div>
+                <ul>
                     {% if request.user.is_authenticated %}
-                    <a href="{%url 'dashboard'%}">PORTAL JOB</a>
-
-                    <a href="">{{request.user.email}}</a>
-
-                    {% if request.user.es_aplicante %}
-                        <span>Navbar para aplicante</span>
-                        {% if request.user.tiene_curriculum %}
-                        <a href="{% url 'alerta-list' %}">Aplicar a un trabajo</a>
-                        <a href="{% url 'alertas-aplicadas-list' %}">Trabajos aplicados</a>
-                        {% else %}
-                        <a href="{%url 'update-curriculum' %}">Crear un curriculum</a>
+                        <li>
+                            <a href="{% url 'home' %}">
+                                <i class="fas fa-home"></i>
+                                <span class="nav-item">HOME</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-envelope"></i>
+                                <span class="nav-item">{{ request.user.email }}</span>
+                            </a>
+                        </li>
+        
+                        {% if request.user.es_aplicante %}
+                            {% if request.user.tiene_curriculum %}
+                                <li>
+                                    <a href="{% url 'alerta-list' %}">
+                                        <i class="fas fa-tasks"></i>
+                                        <span class="nav-item">Aplicar a un trabajo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'alertas-aplicadas-list' %}">
+                                        <i class="fas fa-list"></i>
+                                        <span class="nav-item">Trabajos aplicados</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'update-curriculum' %}">
+                                        <i class="fas fa-edit"></i>
+                                        <span class="nav-item">Crear un curriculum</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% elif request.user.es_reclutador %}
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-user"></i>
+                                    <span class="nav-item">Navbar para reclutador</span>
+                                </a>
+                            </li>
+                            {% if request.user.tiene_empresa %}
+                                <li>
+                                    <a href="{% url 'gestion-alertas' %}">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span class="nav-item">Mis ofertas laborales</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'create-alerta' %}">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span class="nav-item">Agregar oferta laboral</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'update-empresa' %}">
+                                        <i class="fas fa-building"></i>
+                                        <span class="nav-item">Crear empresa</span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         {% endif %}
+                        <li>
+                            <a href="{% url 'logout' %}" class="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span class="nav-item">Cerrar sesión</span>
+                            </a>
+                        </li>
 
-                    {% elif request.user.es_reclutador %}
-                        <span>Navbar para reclutador</span>
-                        {% if request.user.tiene_empresa %}
-                        <a href="{% url 'gestion-alertas' %}">Mis ofertas laborales</a>
-                        <a href="{% url 'create-alerta' %}">Agregar oferta laboral</a>
-                        {% else %}
-                        <a href="{% url 'update-empresa' %}">Crear empresa</a>
-                        {% endif %}
+                        <div class="profile">
+                            <img src="{% static 'images/profile.jpg' %}" alt="profile" class="profile-img">
+                            <div class="profile-name">
+                                <h4>{{ request.user.email }}</h4>
+                                {% if request.user.es_aplicante %}
+                                <p>aplicante</p>
+                                {% else%}
+                                <p>reclutador</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'home' %}">
+                                <i class="fas fa-home"></i>
+                                <span class="nav-item">HOME</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'AddUser-aplicante' %}">
+                                <i class="fas fa-briefcase"></i>
+                                <span class="nav-item">Registrate</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span class="nav-item">Inicia sesión</span>
+                            </a>
+                        </li>
                     {% endif %}
-
-                    <a href="{%url 'logout' %}">Cerrar sesión</a>
-                {% else %}
-
-                <a href="{%url 'home'%}">HOME PORTAL JOB</a>
-                <a href="{% url 'alerta-list' %}">Todos los trabajos</a>
-                <a href="{% url 'login' %}">Login</a>
-                {% endif %}
-                </nav>
-
-                
+                </ul>
             </div>
-            <h1>Bienvenido al Portal Job</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
-        </div>
-        <div>
+        </nav>
+        
+
+    
+
             {% if messages %}
                 {% for mensaje in messages %}
                     <b>{{mensaje}}</b>
@@ -59,9 +143,12 @@
             
             {% block content %}
             {% endblock content %}
-        </div>
+
+
     </div>
 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body> 
 </html>

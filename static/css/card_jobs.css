@@ -1,0 +1,91 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas */
+    gap: 1rem; /* Espacio entre tarjetas */
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 3%;
+    background-color: var(--blanco);
+    line-height: 1.5;
+    gap: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-left {
+    width: 10%;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20%;
+}
+
+.card-left img {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 1rem;
+}
+
+.card-center {
+    width: 50%;
+}
+
+.card-loc,
+.card-sub {
+    font-size: 13px;
+    color: var(--gris);
+}
+
+.card-sub {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-sub p {
+    display: flex;
+    padding: 0 0.5rem 0 0;
+    align-items: center;
+}
+
+.card-right {
+    width: 15%;
+}
+
+.card-tag a {
+    color: var(--negro);
+    font-size: 13px;
+}
+
+.card-salary {
+    padding: 0.5rem 0;
+    color: var(--azul);
+}
+
+.card-salary span {
+    color: var(--negro);
+    font-size: 13px;
+}
+
+.blue-bg {
+    background-color: rgb(183, 233, 255);
+}
+
+.yellow-bg {
+    background-color: rgb(255, 255, 180);
+}
+
+.green-bg {
+    background-color: rgb(200, 255, 200);
+}

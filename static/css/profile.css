@@ -1,0 +1,27 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--blanco-suave);
+    color: var(--negro);
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(99,99,99,0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+.profile:hover{
+    background-color: var(--amarillo);
+}
+
+.profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.profile-name p{
+    font-size: 12px;
+}
